@@ -3,6 +3,7 @@ var db = require("../../models");
 // get route -> index
 router.get("/", function(req, res) {
   console.log("as hit");
+  res.end();
 });
 
 // get route, edited to match sequelize
