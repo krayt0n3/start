@@ -1,7 +1,25 @@
 import React from "react";
+import { Route, Link } from "react-router-dom";
+const Views = ({ match }) => <p>{match.params.id}</p>;
 class View extends React.Component {
   render() {
-    return <h1>View</h1>;
+    const { url } = this.props.match;
+    return <div>
+      <h1>Users</h1>
+      <strong>select a user</strong>
+      <ul>
+        <li>
+          <Link to="/view/Government">Government </Link>
+        </li>
+        <li>
+          <Link to="/view/bids">Bids </Link>
+        </li>
+        <li>
+          <Link to="/view/Austin">Austin </Link>
+        </li>
+      </ul>
+      <Route path="/view/:title" component={Views} />
+    </div>;
   }
 }
 export default View;

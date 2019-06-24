@@ -1,9 +1,38 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
-import { Route, Link, BrowserRouter as Router } from "react-router-dom";
 import App from "./App";
 import Post from "./pages/Post";
 import View from "./pages/View";
+import Notfound from "./pages/notFound";
+import {
+  Route,
+  NavLink,
+  BrowserRouter as Router,
+  Switch,
+} from "react-router-dom";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+const routing = (
+  <Router>
+    <div>
+      <ul>
+        <li>
+          <NavLink exact activeClassName="active" to="/">Home</NavLink>
+        </li>
+        <li>
+          <NavLink exact activeClassName="active" to="/view">View</NavLink>
+        </li>
+        <li>
+          <NavLink exact activeClassName="active" to="/post">Post</NavLink>
+        </li>
+      </ul>
+      <Switch>
+        <Route exact path="/" component={App} />
+        <Route path="/view" component={View} />
+        <Route path="/post" component={Post} />
+        <Route component={Notfound} />
+      </Switch>
+    </div>
+  </Router>
+);
+
+ReactDOM.render(routing, document.getElementById("root"));
