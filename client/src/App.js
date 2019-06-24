@@ -1,10 +1,12 @@
 import React from "react";
-import "./styles/App.css";
-import "./styles/appStyles.scss";
+import "./styles/App.scss";
+import Container from "react-bootstrap/Container";
 
 function App() {
   return <div>
-    <h1>Home</h1>
+    <Container>
+      <h1>Home</h1>
+    </Container>
   </div>;
 }
 
