@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "",
-    "database": "light_bites_db",
+    "database": "bp_blog_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
