@@ -1,8 +1,13 @@
 import React from "react";
-import Form from "./components/Form";
+import "./styles/App.scss";
+import Container from "react-bootstrap/Container";
 
 function App() {
-  return <Form />;
+  return <div>
+    <Container>
+      <h1>Home</h1>
+    </Container>
+  </div>;
 }
 
 export default App;
