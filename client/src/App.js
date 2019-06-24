@@ -1,8 +1,11 @@
 import React from "react";
-import Form from "./components/Form";
+import "./styles/App.css";
+import "./styles/appStyles.scss";
 
 function App() {
-  return <Form />;
+  return <div>
+    <h1>Home</h1>
+  </div>;
 }
 
 export default App;
