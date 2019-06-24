@@ -23,11 +23,11 @@ router.get("/:attribute/:value", (request, response) => {
 // POST/Create a post
 router.post("/create", (request, response) => {
   db.Post.create({
-    title: request.body.firstname,
-    author: request.body.lastname,
-    image: request.body.phonenumber,
-    body: request.body.email,
-    date: request.body.password
+    title: request.body.title,
+    author: request.body.author,
+    image: request.body.image,
+    body: request.body.body,
+    date: request.body.date
   }).then(newPost => {
     console.log(newPost);
     response.json(newPost);

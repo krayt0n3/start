@@ -5,17 +5,11 @@ export default class SignUp extends Component {
   constructor() {
     super();
     this.state = {
-      firstname: "",
-      lastname: "",
-      phonenumber: "",
-      email: "",
-      password: "",
-      address1: "",
-      address2: "",
-      address3: "",
-      city: "",
-      state: "",
-      zip: ""
+      title: "",
+      author: "",
+      image: "",
+      body: ""
+
     };
   }
 
@@ -32,10 +26,10 @@ export default class SignUp extends Component {
   onSubmit = (e) => {
     e.preventDefault();
     // get our form data out of state
-    const { firstname, lastname, phonenumber, email, password, address1, address2, address3, city, state, zip} = this.state;
+    const { title, author, image, body} = this.state;
 
-    var url = "https://lightbites.herokuapp.com/api/customers/create";
-    var data = {firstname, lastname, phonenumber, email, password, address1, address2, address3, city, state, zip};
+    var url = "https://blog-bidprime.herokuapp.com/api/customers/create";
+    var data = {title, author, image, body};
     
     fetch(url, {
       method: "POST", // or 'PUT'
@@ -52,22 +46,15 @@ export default class SignUp extends Component {
 
 
   componentDidMount() {
-    fetch("https://lightbites.herokuapp.com/api/customers/")
+    fetch("https://blog-bidprime.herokuapp.com/api/")
       .then(res => res.json())
       .then(
         (result) => {
           this.setState({
-            firstname: result.firstname,
-            lastname: result.lastname,
-            phonenumber: result.phonenumber,
-            email: result.email,
-            password: result.password,
-            address1: result.address1,
-            address2: result.address2,
-            address3: result.address3,
-            city: result.city,
-            state: result.state,
-            zip: result.zip
+            title: result.title,
+            author: result.author,
+            image: result.image,
+            body: result.body
           });
         },
         
@@ -81,7 +68,7 @@ export default class SignUp extends Component {
 
 
   render() {
-    const { firstname, lastname, phonenumber, email, password, address1, address2, address3, city, state, zip, error} = this.state;
+    const { title, author, image, body, error} = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
     } else {
@@ -89,81 +76,33 @@ export default class SignUp extends Component {
         <form onSubmit={this.onSubmit}>
           <input
             type="text"
-            name="firstname"
-            value={firstname}
+            name="title"
+            value={title}
             onChange={this.onChange}
-            placeholder="First Name"
+            placeholder="Title"
           />
           <input
             type="text"
-            name="lastname"
-            value={lastname}
+            name="author"
+            value={author}
             onChange={this.onChange}
-            placeholder="Last Name"
+            placeholder="Author"
           />
           <input
             type="text"
-            name="phonenumber"
-            value={phonenumber}
+            name="image"
+            value={image}
             onChange={this.onChange}
-            placeholder="Phone Number"
+            placeholder="Image URL"
           />
           <input
-            type="text"
-            name="email"
-            value={email}
+            type="textarea"
+            name="body"
+            value={body}
             onChange={this.onChange}
-            placeholder="Email"
+            placeholder="Write your post here ..."
           />
-          <input
-            type="text"
-            name="password"
-            value={password}
-            onChange={this.onChange}
-            placeholder="Password"
-          />
-          <input
-            type="text"
-            name="address1"
-            value={address1}
-            onChange={this.onChange}
-            placeholder="Address 1"
-          />
-          <input
-            type="text"
-            name="address2"
-            value={address2}
-            onChange={this.onChange}
-            placeholder="Address 2"
-          />
-          <input
-            type="text"
-            name="address3"
-            value={address3}
-            onChange={this.onChange}
-            placeholder="Address 3"
-          />
-          <input
-            type="text"
-            name="city"
-            value={city}
-            onChange={this.onChange}
-            placeholder="City"
-          />
-          <input
-            type="text"
-            name="state"
-            value={state}
-            onChange={this.onChange}
-            placeholder="State"
-          />
-          <input
-            type="number"
-            name="zip"
-            value={zip}
-            onChange={this.onChange}
-            placeholder="Zipcode"
-          />
+          
           <button type="submit">Submit</button>
         </form>
       );
