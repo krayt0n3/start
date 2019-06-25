@@ -29,18 +29,17 @@ export default class SignUp extends Component {
     fetch(url, {
       method: "POST",
       body: JSON.stringify({
-        title: title.value,
-        author: author.value,
-        image: image.value,
-        body: body.value
+        title: title,
+        author: author,
+        image: image,
+        body: body
       }),
       headers: {
         "Accept": "application/json",
         "Content-Type": "application/json",
       }, // data can be `string` or {object}!
-    }).then(res => res.json())
-      .catch(error => console.error("Error:", error))
-      .then(response => console.log("Success:", JSON.stringify(response)));
+    }).then(res => console.log(res.json()));
+      
   }
 
 
