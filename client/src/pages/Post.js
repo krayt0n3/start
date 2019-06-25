@@ -14,11 +14,6 @@ export default class SignUp extends Component {
   }
 
   onChange = (e) => {
-    /*
-      Because we named the inputs to match their
-      corresponding values in state, it's
-      super easy to update the state
-    */
     this.setState({ [e.target.name]: e.target.value });
   }
 
@@ -29,16 +24,23 @@ export default class SignUp extends Component {
     const { title, author, image, body} = this.state;
 
     var url = "https://blog-bidprime.herokuapp.com/api/post/create";
-    var data = {title, author, image, body};
+    
     
     fetch(url, {
-      method: "POST", // or 'PUT'
-      body: JSON.stringify(data) // data can be `string` or {object}!
-      
+      method: "POST",
+      body: JSON.stringify({
+        title: title.value,
+        author: author.value,
+        image: image.value,
+        body: body.value
+      }),
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+      }, // data can be `string` or {object}!
     }).then(res => res.json())
-      .then(response => console.log("Success:", JSON.stringify(response)))
-      .catch(error => console.error("Error:", error));
-    
+      .catch(error => console.error("Error:", error))
+      .then(response => console.log("Success:", JSON.stringify(response)));
   }
 
 
