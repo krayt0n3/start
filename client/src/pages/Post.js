@@ -32,7 +32,11 @@ export default class SignUp extends Component {
     var url = "https://blog-bidprime.herokuapp.com/api/post/create";
     var data = {title, author, image, body};
     console.log(data);
-    axios.post(url, { data })
+    axios.post(url, data, {
+      headers: {
+        "content-type": "application/json",
+      },
+    })
       .then((result) => {
         console.log(result);
       })
