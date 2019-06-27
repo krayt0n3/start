@@ -34,12 +34,8 @@ export default class SignUp extends Component {
         image: image,
         body: body
       }),
-      headers: {
-        "Accept": "application/json",
-        "Content-Type": "application/json",
-      }, // data can be `string` or {object}!
-    }).then(res => console.log(res.json()));
-      
+      // data can be `string` or {object}!
+    }).then(res => console.log(res.json()));   
   }
 
 
