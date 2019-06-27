@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
+var axios = require("axios");
 
 export default class SignUp extends Component {
   constructor() {
@@ -31,43 +32,50 @@ export default class SignUp extends Component {
     var url = "https://blog-bidprime.herokuapp.com/api/post/create";
     var data = {title, author, image, body};
     console.log(data);
-    fetch(url, {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers:{
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      }
-      // data can be `string` or {object}!
-    }).then(res => res.json())   
-      .then(response => console.log("Success:", JSON.stringify(response)))
-      .then(() => this.setState(() => ({	
-        toHome: true	
-      })))
-      .catch(error => console.error("Error:", error));
+    axios.post(url, { data })
+      .then((result) => {
+        console.log(result);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    // fetch(url, {
+    //   method: "POST",
+    //   body: JSON.stringify(data),
+    //   headers:{
+    //     "Content-Type": "application/json",
+    //     "Accept": "application/json"
+    //   }
+    //   // data can be `string` or {object}!
+    // }).then(res => res.json())   
+    //   .then(response => console.log("Success:", JSON.stringify(response)))
+    //   .then(() => this.setState(() => ({	
+    //     toHome: true	
+    //   })))
+    //   .catch(error => console.error("Error:", error));
   }
 
-  componentDidMount() {
-    fetch("https://blog-bidprime.herokuapp.com/api/post/")	
-      .then(res => res.json())	
-      .then(	
-        (result) => {	
-          this.setState({	
-            title: result.title,	
-            author: result.author,	
-            image: result.image,	
-            body: result.body
-          });	
-          console.log(result);
-        },	
+  // componentDidMount() {
+  //   fetch("https://blog-bidprime.herokuapp.com/api/post/")	
+  //     .then(res => res.json())	
+  //     .then(	
+  //       (result) => {	
+  //         this.setState({	
+  //           title: result.title,	
+  //           author: result.author,	
+  //           image: result.image,	
+  //           body: result.body
+  //         });	
+  //         console.log(result);
+  //       },	
 
-        (error) => {	
-          this.setState({	
-            error	
-          });	
-        }	
-      );	
-  }
+  //       (error) => {	
+  //         this.setState({	
+  //           error	
+  //         });	
+  //       }	
+  //     );	
+  // }
   
 
 
