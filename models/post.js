@@ -21,10 +21,6 @@ module.exports = function(sequelize, DataTypes) {
     body: {
       type: DataTypes.TEXT,
       allowNull: false
-    },
-    date: {
-      type: DataTypes.DATE,
-      allowNull: false
     }
   },{
     freezeTableName: true,

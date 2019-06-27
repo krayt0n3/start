@@ -26,8 +26,7 @@ router.post("/create", (request, response) => {
     title: request.body.title,
     author: request.body.author,
     image: request.body.image,
-    body: request.body.body,
-    date: request.body.date
+    body: request.body.body
   }).then(newPost => {
     console.log(newPost);
     response.json(newPost);
