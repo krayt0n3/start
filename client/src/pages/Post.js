@@ -23,7 +23,7 @@ export default class SignUp extends Component {
     // get our form data out of state
     const { title, author, image, body} = this.state;
 
-    var url = "https://blog-bidprime.herokuapp.com/api/post/create";
+    var url = "https://blog-bidprime.herokuapp.com/api/post";
     
     
     fetch(url, {
