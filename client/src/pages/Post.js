@@ -30,7 +30,7 @@ export default class SignUp extends Component {
 
     var url = "https://blog-bidprime.herokuapp.com/api/post/create";
     var data = {title, author, image, body};
-    
+    console.log(data);
     fetch(url, {
       method: "POST",
       body: JSON.stringify(data),
@@ -47,33 +47,33 @@ export default class SignUp extends Component {
       .catch(error => console.error("Error:", error));
   }
 
-  // componentDidMount() {
-  //   fetch("https://blog-bidprime.herokuapp.com/api/post/")	
-  //     .then(res => res.json())	
-  //     .then(	
-  //       (result) => {	
-  //         this.setState({	
-  //           title: result.title,	
-  //           author: result.author,	
-  //           image: result.image,	
-  //           body: result.body
-  //         });	
-  //       },	
+  componentDidMount() {
+    fetch("https://blog-bidprime.herokuapp.com/api/post/")	
+      .then(res => res.json())	
+      .then(	
+        (result) => {	
+          this.setState({	
+            title: result.title,	
+            author: result.author,	
+            image: result.image,	
+            body: result.body
+          });	
+        },	
 
-  //       (error) => {	
-  //         this.setState({	
-  //           error	
-  //         });	
-  //       }	
-  //     );	
-  // }
+        (error) => {	
+          this.setState({	
+            error	
+          });	
+        }	
+      );	
+  }
   
 
 
 
   render() {
     const { title, author, image, body, error} = this.state;
-    if (this.state.toProfile === true) {
+    if (this.state.toHome === true) {
       return <Redirect to='/' />;}
     if (error) {
       return <div>Error: {error.message}</div>;
