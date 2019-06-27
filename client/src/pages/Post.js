@@ -47,26 +47,26 @@ export default class SignUp extends Component {
       .catch(error => console.error("Error:", error));
   }
 
-  componentDidMount() {
-    fetch("https://blog-bidprime.herokuapp.com/api/post/")	
-      .then(res => res.json())	
-      .then(	
-        (result) => {	
-          this.setState({	
-            title: result.title,	
-            author: result.author,	
-            image: result.image,	
-            body: result.body
-          });	
-        },	
+  // componentDidMount() {
+  //   fetch("https://blog-bidprime.herokuapp.com/api/post/")	
+  //     .then(res => res.json())	
+  //     .then(	
+  //       (result) => {	
+  //         this.setState({	
+  //           title: result.title,	
+  //           author: result.author,	
+  //           image: result.image,	
+  //           body: result.body
+  //         });	
+  //       },	
 
-        (error) => {	
-          this.setState({	
-            error	
-          });	
-        }	
-      );	
-  }
+  //       (error) => {	
+  //         this.setState({	
+  //           error	
+  //         });	
+  //       }	
+  //     );	
+  // }
   
 
 
