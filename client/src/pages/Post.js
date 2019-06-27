@@ -58,6 +58,7 @@ export default class SignUp extends Component {
             image: result.image,	
             body: result.body
           });	
+          console.log(result);
         },	
 
         (error) => {	
