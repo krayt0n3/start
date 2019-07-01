@@ -5,13 +5,11 @@ import Header from "./components/Header";
 var axios = require("axios");
 
   
-axios.get("/")
-  .then(function (response) {
-    console.log(response);
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
+axios.get("https://blog-bidprime.herokuapp.com/api/post/")
+  .then(function(response){
+    console.log(response.data); // ex.: { user: 'Your User'}
+    console.log(response.status); // ex.: 200
+  });  
 
 function App() {
   return <div>
