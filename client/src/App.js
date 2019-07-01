@@ -4,9 +4,8 @@ import Container from "react-bootstrap/Container";
 import Header from "./components/Header";
 var axios = require("axios");
 
-var url = "https://blog-bidprime.herokuapp.com/api/post/";
   
-axios.get(url)
+axios.get("/")
   .then(function (response) {
     console.log(response);
   })
