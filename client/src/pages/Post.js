@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
+import Header from "../components/Header";
 var axios = require("axios");
+
 
 export default class SignUp extends Component {
   constructor() {
@@ -92,38 +94,41 @@ export default class SignUp extends Component {
       return <div>Error: {error.message}</div>;
     } else {
       return (
-        <form onSubmit={this.onSubmit}>
-          <input
-            type="text"
-            name="title"
-            value={title}
-            onChange={this.onChange}
-            placeholder="Title"
-          />
-          <input
-            type="text"
-            name="author"
-            value={author}
-            onChange={this.onChange}
-            placeholder="Author"
-          />
-          <input
-            type="text"
-            name="image"
-            value={image}
-            onChange={this.onChange}
-            placeholder="Image URL"
-          />
-          <input
-            type="textarea"
-            name="body"
-            value={body}
-            onChange={this.onChange}
-            placeholder="Write your post here ..."
-          />
+        <div>
+          <Header />
+          <form onSubmit={this.onSubmit}>
+            <input
+              type="text"
+              name="title"
+              value={title}
+              onChange={this.onChange}
+              placeholder="Title"
+            />
+            <input
+              type="text"
+              name="author"
+              value={author}
+              onChange={this.onChange}
+              placeholder="Author"
+            />
+            <input
+              type="text"
+              name="image"
+              value={image}
+              onChange={this.onChange}
+              placeholder="Image URL"
+            />
+            <input
+              type="textarea"
+              name="body"
+              value={body}
+              onChange={this.onChange}
+              placeholder="Write your post here ..."
+            />
           
-          <button type="submit">Submit</button>
-        </form>
+            <button type="submit">Submit</button>
+          </form>
+        </div>
       );
     }}
 }

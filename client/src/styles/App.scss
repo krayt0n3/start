@@ -3,6 +3,25 @@
     margin: 5%;
 }
 
+a {
+    color: whitesmoke;
+    padding-right: inherit;
+    padding-left: inherit;
+    text-decoration: none;
+}
+
 .active{
     color: #589559;
+    font-weight: bold;
  }
+
+ header {
+     background-color: black;
+     color: white;
+     padding: 1%;
+ }
+
+.logo {
+    width: 10%;
+ }
+
