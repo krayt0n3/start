@@ -6,9 +6,9 @@ var axios = require("axios");
 
   
 axios.get("https://blog-bidprime.herokuapp.com/api/post/")
-  .then(function(response){
-    console.log(response.data); // ex.: { user: 'Your User'}
-    console.log(response.status); // ex.: 200
+  .then(function(result){
+    console.log(result); // ex.: { user: 'Your User'}
+    console.log(result.status); // ex.: 200
   });  
 
 function App() {
