@@ -14,17 +14,6 @@ import {
 const routing = (
   <Router>
     <div>
-      <ul>
-        <li>
-          <NavLink exact activeClassName="active" to="/">Home</NavLink>
-        </li>
-        <li>
-          <NavLink exact activeClassName="active" to="/view">View</NavLink>
-        </li>
-        <li>
-          <NavLink exact activeClassName="active" to="/post">Post</NavLink>
-        </li>
-      </ul>
       <Switch>
         <Route exact path="/" component={App} />
         <Route path="/view" component={View} />
