@@ -1,13 +1,11 @@
 const express = require("express");
 const routes = require("./controllers");
 const app = express();
-const cors = require("cors");
 
 const PORT = process.env.PORT || 3001;
 var db = require("./models/");
 
 
-app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // Serve up static assets (usually on heroku)
