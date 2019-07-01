@@ -1,13 +1,13 @@
 const express = require("express");
 const routes = require("./controllers");
 const app = express();
-
+const cors = require("cors");
 
 const PORT = process.env.PORT || 3001;
-var db = require("./models");
+var db = require("./models/");
 
 
-
+app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // Serve up static assets (usually on heroku)
@@ -22,7 +22,7 @@ app.use(routes);
 db.sequelize.sync({ 
   
 }).then(() => {
-  var run = require("./scripts/seedDB");
+  var run = require("./scripts/seedDB.js");
 
   app.listen(PORT, () => {
     console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);

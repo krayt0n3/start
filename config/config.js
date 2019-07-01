@@ -15,14 +15,7 @@ import ExtractTextPlugin from "extract-text-webpack-plugin";
   
 //NOTE: Using local machine data here to get app running
 const config = {
-  // "development": {
-  //   "username": "e3NKsKpA0A",
-  //   "password": "KxhacQ1HhW",
-  //   "database": "e3NKsKpA0A",
-  //   "host": "remotemysql.com",
-  //   "dialect": "mysql",
-  //   "operatorsAliases": false
-  // },
+ 
   module:{
     rules:[
       {
