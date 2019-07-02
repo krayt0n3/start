@@ -6,7 +6,7 @@ const db = require("../../models");
 //GET for all posts
 router.get("/", (request, response) => {
   db.Post.findAll({}).then(posts => response.json(posts));
-  response.end();
+
 });
 
 //GET Route for specific post
@@ -17,7 +17,7 @@ router.get("/:attribute/:value", (request, response) => {
       [request.params.attribute]: request.params.value
     }
   }).then(posts => response.json(posts));
-  response.end();
+ 
 });
 
 // POST/Create a post
@@ -31,7 +31,7 @@ router.post("/create", (request, response) => {
     console.log(newPost);
     response.json(newPost);
   });
-  response.end();
+  
 });
 
 // PUT/Update
@@ -42,7 +42,7 @@ router.put("/:attribute/:value", (request, response) => {
       [request.params.attribute]: request.params.value
     }
   }).then(updatedPost => response.json(updatedPost));
-  response.end();
+ 
 });
 
 // DELETE/Delete
@@ -52,7 +52,7 @@ router.delete("/:attribute/:value", (request, response) => {
       [request.params.attribute]: request.params.value
     }
   }).then(destroyedPost => response.json(destroyedPost));
-  response.end();
+  
 });
 
 module.exports = router;
