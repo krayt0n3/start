@@ -5,7 +5,7 @@ import Header from "./components/Header";
 var axios = require("axios");
 
   
-axios.get("https://blog-bidprime.herokuapp.com/api/post/")
+axios.get("https://blog-bidprime.herokuapp.com/api/post")
   .then(function(result){
     console.log(result); // ex.: { user: 'Your User'}
     console.log(result.status); // ex.: 200
