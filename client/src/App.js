@@ -1,21 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import "./styles/App.scss";
 import Container from "react-bootstrap/Container";
 import Header from "./components/Header";
+import PostCard from "./components/PostCard";
 var axios = require("axios");
 
-  
-axios.get("https://blog-bidprime.herokuapp.com/api/post")
-  .then(function(result){
-    console.log(result); // ex.: { user: 'Your User'}
-    console.log(result.status); // ex.: 200
-  });  
 
 function App() {
+  const [posts, setPosts] = useState([]);
+
+
+  axios.get("https://blog-bidprime.herokuapp.com/api/post")
+    .then(res => res.json())
+    .then(data => {
+      setPosts(data);
+    });
   return <div>
     <Header />
     <Container>
-      <h1>Home</h1>
+      {posts.map(post => (
+        <PostCard 
+          name= {post.title}
+          image= {post.image}/>
+      ))}
     </Container>
   </div>;
 }
