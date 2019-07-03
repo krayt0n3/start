@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import PostCard from "./components/PostCard";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Sidebar from "./components/Sidebar";
   
 
 
@@ -30,6 +31,7 @@ function App() {
               image= {post.image}/>
           ))}
         </Col>
+        <Col sm><Sidebar /></Col>
       </Row>
     </Container>
   </div>;
