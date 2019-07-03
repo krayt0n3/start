@@ -9,12 +9,14 @@ var axios = require("axios");
 function App() {
   const [posts, setPosts] = useState([]);
 
-
-  axios.get("https://blog-bidprime.herokuapp.com/api/post")
+  fetch("https://blog-bidprime.herokuapp.com/api/post", {
+    method: "GET"
+  })
     .then(res => res.json())
     .then(data => {
       setPosts(data);
     });
+    
   return <div>
     <Header />
     <Container>
