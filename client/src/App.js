@@ -3,7 +3,9 @@ import "./styles/App.scss";
 import Container from "react-bootstrap/Container";
 import Header from "./components/Header";
 import PostCard from "./components/PostCard";
-var axios = require("axios");
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+  
 
 
 function App() {
@@ -16,15 +18,19 @@ function App() {
     .then(data => {
       setPosts(data);
     });
-    
+
   return <div>
     <Header />
     <Container>
-      {posts.map(post => (
-        <PostCard 
-          name= {post.title}
-          image= {post.image}/>
-      ))}
+      <Row>
+        <Col>
+          {posts.map(post => (
+            <PostCard 
+              name= {post.title}
+              image= {post.image}/>
+          ))}
+        </Col>
+      </Row>
     </Container>
   </div>;
 }
