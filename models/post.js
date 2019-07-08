@@ -20,25 +20,34 @@ module.exports = function(sequelize, DataTypes) {
     },
     body: {
       type: DataTypes.TEXT,
-      allowNull: false
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
     },
     category1: {
-      type: DataTypes.STRING(150)
+      type: DataTypes.STRING,
+      defaultValue: "BidPrime News"
     },
     category2: {
-      type: DataTypes.STRING(150)
+      type: DataTypes.STRING,
+      defaultValue: "BidPrime News"
     },
     category3: {
-      type: DataTypes.STRING(150)
+      type: DataTypes.STRING,
+      defaultValue: "BidPrime News"
     },
     tag1: {
-      type: DataTypes.STRING(150)
+      type: DataTypes.STRING,
+      defaultValue: "bidprime news"
     },
     tag2: {
-      type: DataTypes.STRING(150)
+      type: DataTypes.STRING,
+      defaultValue: "bidprime news"
     },
     tag3: {
-      type: DataTypes.STRING(150)
+      type: DataTypes.STRING,
+      defaultValue: "bidprime news"
     },
   },{
     freezeTableName: true,
