@@ -22,26 +22,30 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.TEXT,
       allowNull: false
     },
-    categories: {
+    category1: {
       type: DataTypes.STRING(150),
-      allowNull: true,
-      get() {
-        return this.getDataValue("categories").split(",");
-      },
-      set(val) {
-        this.setDataValue("categories", val.join(","));
-      }
+      allowNull: false,
     },
-    tags: {
+    category2: {
       type: DataTypes.STRING(150),
-      allowNull: true,
-      get() {
-        return this.getDataValue("tags").split(",");
-      },
-      set(val) {
-        this.setDataValue("tags", val.join(","));
-      }
-    }
+      allowNull: false,
+    },
+    category3: {
+      type: DataTypes.STRING(150),
+      allowNull: false,
+    },
+    tag1: {
+      type: DataTypes.STRING(150),
+      allowNull: false,
+    },
+    tag2: {
+      type: DataTypes.STRING(150),
+      allowNull: false,
+    },
+    tag3: {
+      type: DataTypes.STRING(150),
+      allowNull: false,
+    },
   },{
     freezeTableName: true,
     tableName: "Post"

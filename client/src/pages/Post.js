@@ -12,8 +12,12 @@ export default class SignUp extends Component {
       author: "",
       image: "",
       body: "",
-      categories: "",
-      tags: "",
+      category1: "",
+      category2: "",
+      category3: "",
+      tag1: "",
+      tag2: "",
+      tag3: "",
       toHome: false
     };
   }
@@ -26,10 +30,10 @@ export default class SignUp extends Component {
   onSubmit = (e) => {
     e.preventDefault();
     // get our form data out of state
-    const { title, author, image, body, categories, tags} = this.state;
+    const { title, author, image, body, category1, category2, category3, tag1, tag2, tag3} = this.state;
 
     var url = "https://blog-bidprime.herokuapp.com/api/post/create";
-    var data = {title, author, image, body, categories, tags};
+    var data = {title, author, image, body, category1, category2, category3, tag1, tag2, tag3};
     console.log(data);
     axios.post(url, data, {
       headers: {
@@ -42,6 +46,9 @@ export default class SignUp extends Component {
       .catch(function (error) {
         console.log(error);
       });
+    this.setState(() => ({	
+      toHome: true	
+    }));
     // fetch(url, {
     //   method: "POST",
     //   body: JSON.stringify(data),
@@ -56,6 +63,7 @@ export default class SignUp extends Component {
     //     toHome: true	
     //   })))
     //   .catch(error => console.error("Error:", error));
+    
   }
 
   // componentDidMount() {
@@ -84,7 +92,7 @@ export default class SignUp extends Component {
 
 
   render() {
-    const { title, author, image, body, categories, tags, error} = this.state;
+    const { title, author, image, body, category1, category2, category3, tag1, tag2, tag3, error} = this.state;
     if (this.state.toHome === true) {
       return <Redirect to='/' />;}
     if (error) {
@@ -117,17 +125,45 @@ export default class SignUp extends Component {
             />
             <input
               type="text"
-              name="categories"
-              value={categories}
+              name="category1"
+              value={category1}
               onChange={this.onChange}
-              placeholder="Categories"
+              placeholder="Category 1"
             />
             <input
               type="text"
-              name="tags"
-              value={tags}
+              name="category2"
+              value={category2}
               onChange={this.onChange}
-              placeholder="Tags"
+              placeholder="Category 2"
+            />
+            <input
+              type="text"
+              name="category3"
+              value={category3}
+              onChange={this.onChange}
+              placeholder="Category 3"
+            />
+            <input
+              type="text"
+              name="tag1"
+              value={tag1}
+              onChange={this.onChange}
+              placeholder="Tag 1"
+            />
+            <input
+              type="text"
+              name="tag2"
+              value={tag2}
+              onChange={this.onChange}
+              placeholder="Tag 2"
+            />
+            <input
+              type="text"
+              name="tag3"
+              value={tag3}
+              onChange={this.onChange}
+              placeholder="Tag 3"
             />
             <input
               type="textarea"
