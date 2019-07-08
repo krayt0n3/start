@@ -23,28 +23,22 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     category1: {
-      type: DataTypes.STRING(150),
-      allowNull: false,
+      type: DataTypes.STRING(150)
     },
     category2: {
-      type: DataTypes.STRING(150),
-      allowNull: false,
+      type: DataTypes.STRING(150)
     },
     category3: {
-      type: DataTypes.STRING(150),
-      allowNull: false,
+      type: DataTypes.STRING(150)
     },
     tag1: {
-      type: DataTypes.STRING(150),
-      allowNull: false,
+      type: DataTypes.STRING(150)
     },
     tag2: {
-      type: DataTypes.STRING(150),
-      allowNull: false,
+      type: DataTypes.STRING(150)
     },
     tag3: {
-      type: DataTypes.STRING(150),
-      allowNull: false,
+      type: DataTypes.STRING(150)
     },
   },{
     freezeTableName: true,
