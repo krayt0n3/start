@@ -7,39 +7,34 @@ module.exports = function(sequelize, DataTypes) {
       primaryKey: true
     },
     title: {
-      type: DataTypes.STRING(150),
-      allowNull: false
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
     },
     author: {
-      type: DataTypes.STRING(100),
-      allowNull: false
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
     },
     image: {
-      type: DataTypes.STRING(150),
-      allowNull: false
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
     },
     body: {
       type: DataTypes.TEXT,
       allowNull: false
     },
-    category1: {
-      type: DataTypes.STRING(150)
-    },
-    category2: {
-      type: DataTypes.STRING(150)
-    },
-    category3: {
-      type: DataTypes.STRING(150)
-    },
-    tag1: {
-      type: DataTypes.STRING(150)
-    },
-    tag2: {
-      type: DataTypes.STRING(150)
-    },
-    tag3: {
-      type: DataTypes.STRING(150)
-    },
+    category: {
+      type: DataTypes.STRING,
+      defaultValue: "Personal"
+    }
   },{
     freezeTableName: true,
     tableName: "Post"

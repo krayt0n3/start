@@ -12,16 +12,18 @@ router.get("/", function(req, res) {
     });
 });
 
-//GET Route for specific post
-router.get("/:attribute/:value", (request, response) => {
-  //Note that attribute can be firstname, lastname, phonenumber, etc.
+// Get route for returning posts of a specific category
+router.get("/api/posts/category/:category", function(req, res) {
   db.Post.findAll({
     where: {
-      [request.params.attribute]: request.params.value
+      category: req.params.category
     }
-  }).then(posts => response.json(posts));
- 
+  })
+    .then(function(dbPost) {
+      res.json(dbPost);
+    });
 });
+
 
 // POST/Create a post
 router.post("/create", (request, response) => {
