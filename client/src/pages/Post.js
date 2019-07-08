@@ -1,6 +1,9 @@
 import React, { Component } from "react";
+import ReactDOM from "react-dom";
 import { Redirect } from "react-router-dom";
 import Header from "../components/Header";
+import {Editor, EditorState} from "draft-js";
+
 var axios = require("axios");
 
 
