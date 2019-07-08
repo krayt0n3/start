@@ -4,55 +4,79 @@ const db = require("../../models");
 
 // Routes
 //GET for all posts
-router.get("/", (request, response) => {
-  db.Post.findAll({}).then(posts => response.json(posts));
-
+router.get("/api/posts/", function(req, res) {
+  db.Post.findAll({})
+    .then(function(dbPost) {
+      res.json(dbPost);
+    });
 });
 
-//GET Route for specific post
-router.get("/:attribute/:value", (request, response) => {
-  //Note that attribute can be firstname, lastname, phonenumber, etc.
+//Get route for returning posts of a specific category
+router.get("/api/posts/category/:category", function(req, res) {
   db.Post.findAll({
     where: {
-      [request.params.attribute]: request.params.value
+      category: req.params.category
     }
-  }).then(posts => response.json(posts));
- 
+  })
+    .then(function(dbPost) {
+      res.json(dbPost);
+    });
+});
+
+// Get route for retrieving a single post
+router.get("/api/posts/:id", function(req, res) {
+  db.Post.findOne({
+    where: {
+      id: req.params.id
+    }
+  })
+    .then(function(dbPost) {
+      res.json(dbPost);
+    });
 });
 
 // POST/Create a post
-router.post("/create", (request, response) => {
+router.post("/api/posts", function(req, res) {
+  console.log(req.body);
   db.Post.create({
-    title: request.body.title,
-    author: request.body.author,
-    image: request.body.image,
-    body: request.body.body
-  }).then(newPost => {
-    console.log(newPost);
-    response.json(newPost);
-  });
-  
+    title: req.body.title,
+    author: req.body.author,
+    body: req.body.body,
+    category1: req.body.category1,
+    category2: req.body.category2,
+    category3: req.body.category3,
+    tag1: req.body.tag1,
+    tag2: req.body.tag2,
+    tag3: req.body.tag3
+  })
+    .then(function(dbPost) {
+      res.json(dbPost);
+    });
 });
 
 // PUT/Update
-router.put("/:attribute/:value", (request, response) => {
-  //Here we update a specific post
-  db.Post.update(request.body, {
-    where: {
-      [request.params.attribute]: request.params.value
-    }
-  }).then(updatedPost => response.json(updatedPost));
- 
+router.put("/api/posts", function(req, res) {
+  db.Post.update(req.body,
+    {
+      where: {
+        id: req.body.id
+      }
+    })
+    .then(function(dbPost) {
+      res.json(dbPost);
+    });
 });
 
 // DELETE/Delete
-router.delete("/:attribute/:value", (request, response) => {
+router.delete("/api/posts/:id", function(req, res) {
   db.Post.destroy({
     where: {
-      [request.params.attribute]: request.params.value
+      id: req.params.id
     }
-  }).then(destroyedPost => response.json(destroyedPost));
-  
+  })
+    .then(function(dbPost) {
+      res.json(dbPost);
+    });
 });
 
 module.exports = router;

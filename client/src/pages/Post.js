@@ -32,7 +32,7 @@ export default class SignUp extends Component {
     // get our form data out of state
     const { title, author, image, body, category1, category2, category3, tag1, tag2, tag3} = this.state;
 
-    var url = "https://blog-bidprime.herokuapp.com/api/post/create";
+    var url = "https://blog-bidprime.herokuapp.com/api/posts";
     var data = {title, author, image, body, category1, category2, category3, tag1, tag2, tag3};
     console.log(data);
     axios.post(url, data, {
