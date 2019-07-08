@@ -13,15 +13,15 @@ function App() {
   const [posts, setPosts] = useState([]);
 
   function fetchData() {
-    fetch("https://blog-bidprime.herokuapp.com/api/post", {
+    
+      
+    setTimeout(fetch("https://blog-bidprime.herokuapp.com/api/post", {
       method: "GET"
     })
       .then(res => res.json())
       .then(data => {
         setPosts(data);
-      });
-      
-    setTimeout(fetchData, 120000);
+      }), 60000);
   }
 
   fetchData();
