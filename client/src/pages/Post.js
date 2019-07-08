@@ -46,9 +46,7 @@ export default class SignUp extends Component {
       .catch(function (error) {
         console.log(error);
       });
-    this.setState(() => ({	
-      toHome: true	
-    }));
+    
     // fetch(url, {
     //   method: "POST",
     //   body: JSON.stringify(data),
