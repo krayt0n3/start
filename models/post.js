@@ -24,7 +24,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     categories: {
       type: DataTypes.STRING(150),
-      allowNull: false,
+      allowNull: true,
       get() {
         return this.getDataValue("categories").split(",");
       },
@@ -34,7 +34,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     tags: {
       type: DataTypes.STRING(150),
-      allowNull: false,
+      allowNull: true,
       get() {
         return this.getDataValue("tags").split(",");
       },

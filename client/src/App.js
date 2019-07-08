@@ -11,14 +11,20 @@ import Sidebar from "./components/Sidebar";
 
 function App() {
   const [posts, setPosts] = useState([]);
+  
+  function fetchData() {
+    fetch("https://blog-bidprime.herokuapp.com/api/post", {
+      method: "GET"
+    })
+      .then(res => res.json())
+      .then(data => {
+        setPosts(data);
+      });
+    setTimeout(fetchData, 60000);
+  }
 
-  fetch("https://blog-bidprime.herokuapp.com/api/post", {
-    method: "GET"
-  })
-    .then(res => res.json())
-    .then(data => {
-      setPosts(data);
-    });
+  fetchData();
+  
 
   return <div>
     <Header />
