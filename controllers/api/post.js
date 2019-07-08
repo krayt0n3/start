@@ -6,9 +6,7 @@ const db = require("../../models");
 //GET for all posts
 router.get("/api/posts/", function(req, res) {
   db.Post.findAll({})
-    .then(function(dbPost) {
-      res.json(dbPost);
-    });
+    .then(dbPost => response.json(dbPost));
 });
 
 //Get route for returning posts of a specific category
@@ -36,8 +34,8 @@ router.get("/api/posts/:id", function(req, res) {
 });
 
 // POST/Create a post
-router.post("/api/posts", function(req, res) {
-  console.log(req.body);
+router.post("/api/posts", (req, res) => {
+  
   db.Post.create({
     title: req.body.title,
     author: req.body.author,
@@ -49,7 +47,8 @@ router.post("/api/posts", function(req, res) {
     tag2: req.body.tag2,
     tag3: req.body.tag3
   })
-    .then(function(dbPost) {
+    .then(dbPost => {
+      console.log(dbPost);
       res.json(dbPost);
     });
 });
