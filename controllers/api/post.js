@@ -4,9 +4,12 @@ const db = require("../../models");
 
 // Routes
 //GET for all posts
-router.get("/", (request, response) => {
-  db.Post.findAll({}).then(posts => response.json(posts));
 
+router.get("/", function(req, res) {
+  db.Post.findAll({})
+    .then(function(dbPost) {
+      res.json(dbPost);
+    });
 });
 
 //GET Route for specific post
