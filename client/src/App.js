@@ -11,7 +11,7 @@ import Sidebar from "./components/Sidebar";
 
 function App() {
   const [posts, setPosts] = useState([]);
-  
+
   function fetchData() {
     fetch("https://blog-bidprime.herokuapp.com/api/post", {
       method: "GET"
@@ -20,7 +20,8 @@ function App() {
       .then(data => {
         setPosts(data);
       });
-    setTimeout(fetchData, 60000);
+      
+    setTimeout(fetchData, 120000);
   }
 
   fetchData();
