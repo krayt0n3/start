@@ -12,16 +12,13 @@ export default class SignUp extends Component {
       author: "",
       image: "",
       body: "",
+      categories: "",
+      tags: "",
       toHome: false
     };
   }
 
   onChange = (e) => {	
-    /*	
-      Because we named the inputs to match their	
-      corresponding values in state, it's	
-      super easy to update the state	
-    */	
     this.setState({ [e.target.name]: e.target.value });	
   }
 
@@ -29,10 +26,10 @@ export default class SignUp extends Component {
   onSubmit = (e) => {
     e.preventDefault();
     // get our form data out of state
-    const { title, author, image, body} = this.state;
+    const { title, author, image, body, categories, tags} = this.state;
 
     var url = "https://blog-bidprime.herokuapp.com/api/post/create";
-    var data = {title, author, image, body};
+    var data = {title, author, image, body, categories, tags};
     console.log(data);
     axios.post(url, data, {
       headers: {
@@ -87,7 +84,7 @@ export default class SignUp extends Component {
 
 
   render() {
-    const { title, author, image, body, error} = this.state;
+    const { title, author, image, body, categories, tags, error} = this.state;
     if (this.state.toHome === true) {
       return <Redirect to='/' />;}
     if (error) {
@@ -117,6 +114,20 @@ export default class SignUp extends Component {
               value={image}
               onChange={this.onChange}
               placeholder="Image URL"
+            />
+            <input
+              type="text"
+              name="categories"
+              value={categories}
+              onChange={this.onChange}
+              placeholder="Categories"
+            />
+            <input
+              type="text"
+              name="tags"
+              value={tags}
+              onChange={this.onChange}
+              placeholder="Tags"
             />
             <input
               type="textarea"
