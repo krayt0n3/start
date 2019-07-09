@@ -14,12 +14,7 @@ export default class SignUp extends Component {
       author: "",
       image: "",
       body: "",
-      category1: "",
-      category2: "",
-      category3: "",
-      tag1: "",
-      tag2: "",
-      tag3: "",
+      category: "",
       toHome: false
     };
   }
@@ -32,10 +27,10 @@ export default class SignUp extends Component {
   onSubmit = (e) => {
     e.preventDefault();
     // get our form data out of state
-    const { title, author, image, body, category1, category2, category3, tag1, tag2, tag3} = this.state;
+    const { title, author, image, body, category } = this.state;
 
     var url = "https://blog-bidprime.herokuapp.com/api/post/create";
-    var data = {title, author, image, body, category1, category2, category3, tag1, tag2, tag3};
+    var data = {title, author, image, body, category };
     console.log(data);
     axios.post(url, data, {
       headers: {
@@ -92,7 +87,7 @@ export default class SignUp extends Component {
 
 
   render() {
-    const { title, author, image, body, category1, category2, category3, tag1, tag2, tag3, error} = this.state;
+    const { title, author, image, body, category, error} = this.state;
     if (this.state.toHome === true) {
       return <Redirect to='/' />;}
     if (error) {
@@ -101,83 +96,46 @@ export default class SignUp extends Component {
       return (
         <div>
           <Header />
-          <Container>
-            <form onSubmit={this.onSubmit}>
-              <Row></Row>
-              <input
-                type="text"
-                name="title"
-                value={title}
-                onChange={this.onChange}
-                placeholder="Title"
-              />
-              <input
-                type="text"
-                name="author"
-                value={author}
-                onChange={this.onChange}
-                placeholder="Author"
-              />
-              <input
-                type="text"
-                name="image"
-                value={image}
-                onChange={this.onChange}
-                placeholder="Image URL"
-              />
-              <input
-                type="text"
-                name="category1"
-                value={category1}
-                onChange={this.onChange}
-                placeholder="Category 1"
-              />
-              <input
-                type="text"
-                name="category2"
-                value={category2}
-                onChange={this.onChange}
-                placeholder="Category 2"
-              />
-              <input
-                type="text"
-                name="category3"
-                value={category3}
-                onChange={this.onChange}
-                placeholder="Category 3"
-              />
-              <input
-                type="text"
-                name="tag1"
-                value={tag1}
-                onChange={this.onChange}
-                placeholder="Tag 1"
-              />
-              <input
-                type="text"
-                name="tag2"
-                value={tag2}
-                onChange={this.onChange}
-                placeholder="Tag 2"
-              />
-              <input
-                type="text"
-                name="tag3"
-                value={tag3}
-                onChange={this.onChange}
-                placeholder="Tag 3"
-              />
-              <input
-                type="textarea"
-                name="body"
-                value={body}
-                onChange={this.onChange}
-                placeholder="Write your post here ..."
-              />
-              <TextArea />
-              <button type="submit">Submit</button>
-            </form>
-          </Container>
+          <form onSubmit={this.onSubmit}>
+            <input
+              type="text"
+              name="title"
+              value={title}
+              onChange={this.onChange}
+              placeholder="Title"
+            />
+            <input
+              type="text"
+              name="author"
+              value={author}
+              onChange={this.onChange}
+              placeholder="Author"
+            />
+            <input
+              type="text"
+              name="image"
+              value={image}
+              onChange={this.onChange}
+              placeholder="Image URL"
+            />
+            <input
+              type="text"
+              name="category"
+              value={category}
+              onChange={this.onChange}
+              placeholder="Category"
+            />
+            
+            <input
+              type="textarea"
+              name="body"
+              value={body}
+              onChange={this.onChange}
+              placeholder="Write your post here ..."
+            />
+          
+            <button type="submit">Submit</button>
+          </form>
         </div>
       );
     }}
