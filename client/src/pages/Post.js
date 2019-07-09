@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import Header from "../components/Header";
 import {Container, Col, Row} from "react-bootstrap";
-import TextArea from "../components/TextEditor";
+import CKEditor from "@ckeditor/ckeditor5-react";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 var axios = require("axios");
 
 
@@ -44,47 +45,7 @@ export default class SignUp extends Component {
         console.log(error);
       });
     
-    // fetch(url, {
-    //   method: "POST",
-    //   body: JSON.stringify(data),
-    //   headers:{
-    //     "Content-Type": "application/json",
-    //     "Accept": "application/json"
-    //   }
-    //   // data can be `string` or {object}!
-    // }).then(res => res.json())   
-    //   .then(response => console.log("Success:", JSON.stringify(response)))
-    //   .then(() => this.setState(() => ({	
-    //     toHome: true	
-    //   })))
-    //   .catch(error => console.error("Error:", error));
-    
   }
-
-  // componentDidMount() {
-  //   fetch("https://blog-bidprime.herokuapp.com/api/post/")	
-  //     .then(res => res.json())	
-  //     .then(	
-  //       (result) => {	
-  //         this.setState({	
-  //           title: result.title,	
-  //           author: result.author,	
-  //           image: result.image,	
-  //           body: result.body
-  //         });	
-  //         console.log(result);
-  //       },	
-
-  //       (error) => {	
-  //         this.setState({	
-  //           error	
-  //         });	
-  //       }	
-  //     );	
-  // }
-  
-
-
 
   render() {
     const { title, author, image, body, category, error} = this.state;
@@ -105,7 +66,7 @@ export default class SignUp extends Component {
                     name="title"
                     value={title}
                     onChange={this.onChange}
-                    placeholder="Title"
+                    placeholder=" Title"
                     className="formTabs"
                   /></Col>
                 <Col>
@@ -114,7 +75,7 @@ export default class SignUp extends Component {
                     name="author"
                     value={author}
                     onChange={this.onChange}
-                    placeholder="Author"
+                    placeholder=" Author"
                     className="formTabs"
                   /></Col>
               </Row>
@@ -126,7 +87,7 @@ export default class SignUp extends Component {
                     name="image"
                     value={image}
                     onChange={this.onChange}
-                    placeholder="Image URL"
+                    placeholder=" Image URL"
                     className="formTabs"
                   /></Col>
                 <Col>
@@ -135,19 +96,36 @@ export default class SignUp extends Component {
                     name="category"
                     value={category}
                     onChange={this.onChange}
-                    placeholder="Category"
+                    placeholder=" Category"
                     className="formTabs"
                   /></Col>
               </Row>
               <br />
-              <input
-                type="textarea"
-                name="body"
-                value={body}
-                onChange={this.onChange}
-                placeholder="Write your post here ..."
-              /><Row>
-              <TextArea />
+              <Row>
+                <Col>
+                  <div className="editor">
+        
+                    <CKEditor
+                      editor={ ClassicEditor }
+                      data="<p>Write your post here!</p>"
+                      onInit={ editor => {
+                        // You can store the "editor" and use when it is needed.
+                        console.log( "Editor is ready to use!", editor );
+                      } }
+                      onChange={ ( event, editor ) => {
+                        const data = editor.getData();
+                        console.log( { event, editor, data } );
+                      } }
+                      
+                      onBlur={ editor => {
+                        console.log( "Blur.", editor );
+                      } }
+                      onFocus={ editor => {
+                        console.log( "Focus.", editor );
+                      } }
+                    />
+                  </div>
+                </Col>
               </Row>
               <br />
               <button type="submit">Submit</button>
