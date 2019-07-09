@@ -96,46 +96,63 @@ export default class SignUp extends Component {
       return (
         <div>
           <Header />
-          <form onSubmit={this.onSubmit}>
-            <input
-              type="text"
-              name="title"
-              value={title}
-              onChange={this.onChange}
-              placeholder="Title"
-            />
-            <input
-              type="text"
-              name="author"
-              value={author}
-              onChange={this.onChange}
-              placeholder="Author"
-            />
-            <input
-              type="text"
-              name="image"
-              value={image}
-              onChange={this.onChange}
-              placeholder="Image URL"
-            />
-            <input
-              type="text"
-              name="category"
-              value={category}
-              onChange={this.onChange}
-              placeholder="Category"
-            />
-            
-            <input
-              type="textarea"
-              name="body"
-              value={body}
-              onChange={this.onChange}
-              placeholder="Write your post here ..."
-            />
-          
-            <button type="submit">Submit</button>
-          </form>
+          <Container>
+            <form onSubmit={this.onSubmit}>
+              <Row>
+                <Col>
+                  <input
+                    type="text"
+                    name="title"
+                    value={title}
+                    onChange={this.onChange}
+                    placeholder="Title"
+                    className="formTabs"
+                  /></Col>
+                <Col>
+                  <input
+                    type="text"
+                    name="author"
+                    value={author}
+                    onChange={this.onChange}
+                    placeholder="Author"
+                    className="formTabs"
+                  /></Col>
+              </Row>
+              <br />
+              <Row>
+                <Col>
+                  <input
+                    type="text"
+                    name="image"
+                    value={image}
+                    onChange={this.onChange}
+                    placeholder="Image URL"
+                    className="formTabs"
+                  /></Col>
+                <Col>
+                  <input
+                    type="text"
+                    name="category"
+                    value={category}
+                    onChange={this.onChange}
+                    placeholder="Category"
+                    className="formTabs"
+                  /></Col>
+              </Row>
+              <br />
+              <input
+                type="textarea"
+                name="body"
+                value={body}
+                onChange={this.onChange}
+                placeholder="Write your post here ..."
+              /><Row>
+              <TextArea />
+              </Row>
+              <br />
+              <button type="submit">Submit</button>
+            </form>
+          </Container>
         </div>
       );
     }}
