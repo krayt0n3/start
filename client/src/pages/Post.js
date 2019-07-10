@@ -114,7 +114,8 @@ export default class SignUp extends Component {
                       } }
                       onChange={ ( event, editor ) => {
                         const data = editor.getData();
-                        console.log( { event, editor, data } );
+                        window.editor = editor;
+                        this.setState({ body: data});
                       } }
                       
                       onBlur={ editor => {
