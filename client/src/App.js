@@ -12,15 +12,15 @@ function App() {
   const [posts, setPosts] = useState([]);
 
 
-  axios({
-    method: "get",
-    url: "https://blog-bidprime.herokuapp.com/posts",
-    responseType: "json"
-  })
-    
-    .then(res => res.json());
-    
+
       
+
+  axios.get("https://blog-bidprime.herokuapp.com/posts")
+    .then(data => {
+      setPosts(data);})
+    .catch(function (error) {
+      console.log(error);
+    });
 
 
 
