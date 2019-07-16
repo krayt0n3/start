@@ -11,20 +11,17 @@ import Layout from "./components/Layout";
 function App() {
   const [posts, setPosts] = useState([]);
 
-  function fetchData() {
+
     
       
-    setTimeout(fetch("https://blog-bidprime.herokuapp.com/posts", {
-      method: "GET"
-    })
-      .then(res => console.log(res))
-      .then(res => res.json())
-      .then(data => {
-        setPosts(data);
-      }));
-  }
+  fetch("https://blog-bidprime.herokuapp.com/posts", {
+    method: "GET"
+  })
+    .then(data => {
+      setPosts(data);
+    });
 
-  fetchData();
+
   
 
   return <Layout>
