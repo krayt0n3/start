@@ -16,6 +16,7 @@ function App() {
       
 
   axios.get("https://blog-bidprime.herokuapp.com/posts")
+    .then(res => res.json())  
     .then(data => {
       setPosts(data);})
     .catch(function (error) {
