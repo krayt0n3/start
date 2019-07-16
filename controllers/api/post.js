@@ -6,7 +6,10 @@ const db = require("../../models");
 //GET for all posts
 
 router.get("/posts", function (req, res) {
-  res.send("hello world");
+  db.Post.findAll({})
+    .then(function(dbPost) {
+      res.json(dbPost);
+    });
 });
 
 // Get route for returning posts of a specific category
