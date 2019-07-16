@@ -32,8 +32,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     category: {
-      type: DataTypes.STRING,
-      defaultValue: "Personal"
+      type: DataTypes.STRING
     }
   },{
     freezeTableName: true,

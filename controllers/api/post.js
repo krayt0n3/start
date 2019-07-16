@@ -9,7 +9,7 @@ router.get("/", function(req, res) {
   db.Post.findAll({})
     .then(function(dbPost) {
       res.json(dbPost);
-    });
+    }, 60000);
 });
 
 // Get route for returning posts of a specific category

@@ -20,7 +20,7 @@ function App() {
       .then(res => res.json())
       .then(data => {
         setPosts(data);
-      }), 60000);
+      }));
   }
 
   fetchData();
