@@ -14,9 +14,10 @@ function App() {
   function fetchData() {
     
       
-    setTimeout(fetch("https://blog-bidprime.herokuapp.com/api/posts/", {
+    setTimeout(fetch("https://blog-bidprime.herokuapp.com/posts", {
       method: "GET"
     })
+      .then(res => console.log(res))
       .then(res => res.json())
       .then(data => {
         setPosts(data);

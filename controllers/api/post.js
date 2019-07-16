@@ -5,7 +5,7 @@ const db = require("../../models");
 // Routes
 //GET for all posts
 
-router.get("/api/posts/", function(req, res) {
+router.get("/posts", function(req, res) {
   db.Post.findAll({})
     .then(function(dbPost) {
       res.json(dbPost);
