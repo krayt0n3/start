@@ -32,12 +32,7 @@ router.post("/create", (request, response) => {
     author: request.body.author,
     image: request.body.image,
     body: request.body.body,
-    category1: request.body.category1,
-    category2: request.body.category2,
-    category3: request.body.category3,
-    tag1: request.body.tag1,
-    tag2: request.body.tag2,
-    tag3: request.body.tag3
+    category: request.body.category
   }).then(newPost => {
     console.log(newPost);
     response.json(newPost);
