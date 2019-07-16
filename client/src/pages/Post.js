@@ -89,29 +89,15 @@ export default class SignUp extends Component {
                   className="formTabs"
                 /></Col>
               <Col>
-                
-                <select value={category} onChange={this.onChange} name="category" className="formTabs">
-                  <option value="" disabled selected>Category</option>
-                  <option value="BidPrime News">BidPrime News</option>
-                  <option value="Information Technology">Information Technology</option>
-                  <option value="Transportation">Transportation</option>
-                  <option value="Medical, Health and Laboratory">Medical, Health and Laboratory</option>
-                  <option value="Food and Food Service">Food and Food Service</option>
-                  <option value="Environmental">Environmental</option>
-                  <option value="Parks, Sports and Recreation">Parks, Sports and Recreation</option>
-                  <option value="Clothing, Textiles and Uniforms">Clothing, Textiles and Uniforms</option>
-                  <option value="Energy & Lighting">Energy & Lighting</option>
-                  <option value="Security, Public Safety, Fire & Safety">Security, Public Safety, Fire & Safety</option>
-                  <option value="Public Works, Water and Sanitation">Public Works, Water and Sanitation</option>
-                  <option value="Consulting & Professional Services">Consulting & Professional Services</option>
-                  <option value="Office Supplies, Imaging and Technology">Office Supplies, Imaging and Technology</option>
-                  <option value="Rental & Leasing of Equipment and Real Estate">Rental & Leasing of Equipment and Real Estate</option>
-                  <option value="Radio, Communication, Telephone and Telecom">Radio, Communication, Telephone and Telecom</option>
-                  <option value="Building Operations, Cleaning and Maintenance">Building Operations, Cleaning and Maintenance</option>
-                  <option value="Architecture, Engineering & Construction">Architecture, Engineering & Construction</option>
-                </select>
               
-              </Col>
+                <input
+                  type="text"
+                  name="category"
+                  value={category}
+                  onChange={this.onChange}
+                  placeholder=" Category"
+                  className="formTabs"
+                /></Col>
             </Row>
             <br />
             <Row>
