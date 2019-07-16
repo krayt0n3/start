@@ -1,12 +1,12 @@
 import React from "react";
 import { Route, Link } from "react-router-dom";
-import Header from "../components/Header";
+import Layout from "../components/Layout";
+
 const Views = ({ match }) => <p>{match.params.id}</p>;
 class View extends React.Component {
   render() {
     const { url } = this.props.match;
-    return <div>
-      <Header />
+    return <Layout>
       <h1>Users</h1>
       <strong>select a user</strong>
       <ul>
@@ -21,7 +21,7 @@ class View extends React.Component {
         </li>
       </ul>
       <Route path="/view/:title" component={Views} />
-    </div>;
+    </Layout>;
   }
 }
 export default View;

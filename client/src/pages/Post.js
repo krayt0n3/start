@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
-import Header from "../components/Header";
-import {Container, Col, Row} from "react-bootstrap";
+import {Col, Row} from "react-bootstrap";
 import CKEditor from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import Layout from "../components/Layout";
 var axios = require("axios");
 
 
@@ -55,84 +55,81 @@ export default class SignUp extends Component {
       return <div>Error: {error.message}</div>;
     } else {
       return (
-        <div>
-          <Header />
-          <Container>
-            <form onSubmit={this.onSubmit}>
-              <Row>
-                <Col>
-                  <input
-                    type="text"
-                    name="title"
-                    value={title}
-                    onChange={this.onChange}
-                    placeholder=" Title"
-                    className="formTabs"
-                  /></Col>
-                <Col>
-                  <input
-                    type="text"
-                    name="author"
-                    value={author}
-                    onChange={this.onChange}
-                    placeholder=" Author"
-                    className="formTabs"
-                  /></Col>
-              </Row>
-              <br />
-              <Row>
-                <Col>
-                  <input
-                    type="text"
-                    name="image"
-                    value={image}
-                    onChange={this.onChange}
-                    placeholder=" Image URL"
-                    className="formTabs"
-                  /></Col>
-                <Col>
-                  <input
-                    type="text"
-                    name="category"
-                    value={category}
-                    onChange={this.onChange}
-                    placeholder=" Category"
-                    className="formTabs"
-                  /></Col>
-              </Row>
-              <br />
-              <Row>
-                <Col>
-                  <div className="editor">
+        <Layout>
+          <form onSubmit={this.onSubmit}>
+            <Row>
+              <Col>
+                <input
+                  type="text"
+                  name="title"
+                  value={title}
+                  onChange={this.onChange}
+                  placeholder=" Title"
+                  className="formTabs"
+                /></Col>
+              <Col>
+                <input
+                  type="text"
+                  name="author"
+                  value={author}
+                  onChange={this.onChange}
+                  placeholder=" Author"
+                  className="formTabs"
+                /></Col>
+            </Row>
+            <br />
+            <Row>
+              <Col>
+                <input
+                  type="text"
+                  name="image"
+                  value={image}
+                  onChange={this.onChange}
+                  placeholder=" Image URL"
+                  className="formTabs"
+                /></Col>
+              <Col>
+                <input
+                  type="text"
+                  name="category"
+                  value={category}
+                  onChange={this.onChange}
+                  placeholder=" Category"
+                  className="formTabs"
+                /></Col>
+            </Row>
+            <br />
+            <Row>
+              <Col>
+                <div className="editor">
         
-                    <CKEditor
-                      editor={ ClassicEditor }
-                      data="<p>Write your post here!</p>"
-                      onInit={ editor => {
-                        // You can store the "editor" and use when it is needed.
-                        console.log( "Editor is ready to use!", editor );
-                      } }
-                      onChange={ ( event, editor ) => {
-                        const data = editor.getData();
-                        window.editor = editor;
-                        this.setState({ body: data});
-                      } }
+                  <CKEditor
+                    editor={ ClassicEditor }
+                    data="<p>Write your post here!</p>"
+                    onInit={ editor => {
+                      // You can store the "editor" and use when it is needed.
+                      console.log( "Editor is ready to use!", editor );
+                    } }
+                    onChange={ ( event, editor ) => {
+                      const data = editor.getData();
+                      window.editor = editor;
+                      this.setState({ body: data});
+                    } }
                       
-                      onBlur={ editor => {
-                        console.log( "Blur.", editor );
-                      } }
-                      onFocus={ editor => {
-                        console.log( "Focus.", editor );
-                      } }
-                    />
-                  </div>
-                </Col>
-              </Row>
-              <br />
-              <button type="submit">Submit</button>
-            </form>
-          </Container>
-        </div>
+                    onBlur={ editor => {
+                      console.log( "Blur.", editor );
+                    } }
+                    onFocus={ editor => {
+                      console.log( "Focus.", editor );
+                    } }
+                  />
+                </div>
+              </Col>
+            </Row>
+            <br />
+            <button type="submit">Submit</button>
+          </form>
+        </Layout>
       );
     }}
 }
