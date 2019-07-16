@@ -5,21 +5,23 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Sidebar from "./components/Sidebar";
 import Layout from "./components/Layout";
-  
+var axios = require("axios");
 
 
 function App() {
   const [posts, setPosts] = useState([]);
 
 
-    
-      
-  fetch("https://blog-bidprime.herokuapp.com/posts", {
-    method: "GET"
+  axios({
+    method: "get",
+    url: "https://blog-bidprime.herokuapp.com/posts",
+    responseType: "json"
   })
-    .then(data => {
-      setPosts(data);
+    .then(function(response) {
+      console.log(response);
     });
+      
+
 
 
   
