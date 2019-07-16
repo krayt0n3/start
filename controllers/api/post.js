@@ -13,17 +13,15 @@ router.get("/", function(req, res) {
 });
 
 // Get route for returning posts of a specific category
-router.get("/api/posts/category/:category", function(req, res) {
-  db.Post.findAll({
+router.get("/api/posts/:id", function(req, res) {
+  db.Post.findOne({
     where: {
-      category: req.params.category
+      id: req.params.unique_id
     }
-  })
-    .then(function(dbPost) {
-      res.json(dbPost);
-    });
+  }).then(function(dbPost) {
+    res.json(dbPost);
+  });
 });
-
 
 // POST/Create a post
 router.post("/create", (request, response) => {

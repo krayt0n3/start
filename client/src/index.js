@@ -6,7 +6,6 @@ import View from "./pages/View";
 import Notfound from "./pages/notFound";
 import {
   Route,
-  NavLink,
   BrowserRouter as Router,
   Switch,
 } from "react-router-dom";

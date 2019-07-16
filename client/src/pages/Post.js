@@ -89,7 +89,7 @@ export default class SignUp extends Component {
                   className="formTabs"
                 /></Col>
               <Col>
-               <select value={category} onChange={this.onChange} name="category" className="formTabs">
+                <select value={category} onChange={this.onChange} name="category" className="formTabs">
                   <option value="" disabled selected>Category</option>
                   <option value="BidPrime News">BidPrime News</option>
                   <option value="Information Technology">Information Technology</option>
