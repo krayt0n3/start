@@ -17,9 +17,9 @@ function App() {
     url: "https://blog-bidprime.herokuapp.com/posts",
     responseType: "json"
   })
-    .then(function(response) {
-      console.log(response);
-    });
+    
+    .then(res => res.json());
+    
       
 
 
