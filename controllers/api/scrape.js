@@ -3,23 +3,23 @@ const router = require("express").Router();
 const db = require("../../models");
 
 // Routes
-//GET for all customers
-router.get("/", (request, response) => {
-  db.Customer.findAll({}).then(customers => response.json(customers));
-});
+//GET for all scraped items
+router.get("/", (req, res) => {
+  db.scrape.findAll({}).then(story => res.json(story));
+});  
 
 //GET Route for specific customer
 router.get("/:attribute/:value", (request, response) => {
   //Note that attribute can be firstname, lastname, phonenumber, etc.
-  db.Customer.findAll({
+  db.scrape.findAll({
     where: {
       [request.params.attribute]: request.params.value
     }
-  }).then(customer => response.json(customer));
+  }).then(scraped => response.json(scraped));
 });
 
 // POST/Create a customer
-router.post("/create", (request, response) => {
+/* router.post("/create", (request, response) => {
   db.Customer.create({
     firstname: request.body.firstname,
     lastname: request.body.lastname,
@@ -55,6 +55,6 @@ router.delete("/:attribute/:value", (request, response) => {
       [request.params.attribute]: request.params.value
     }
   }).then(destroyedCustomer => response.json(destroyedCustomer));
-});
+}); */
 
 module.exports = router;

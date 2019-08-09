@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "",
-    "database": "light_bites_db",
+    "password": "bexley10",
+    "database": "scrapedData",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
