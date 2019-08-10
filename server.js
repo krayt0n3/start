@@ -138,9 +138,6 @@ function cleanUpDealsUndefined() {
   );
 }
 
-app.get("/", (req, res) => {
-  db.scrape.findAll({}).then(story => res.json(story));
-});  
 
 //GET Route for specific scrape
 app.get("/:attribute/:value", (request, response) => {
@@ -158,7 +155,7 @@ app.use(routes);
 
 // Start the API server
 // ADD SEQUELIZE HERE TO CONNECT TO YOUR DB
-db.sequelize.sync({ force: false }).then(() => {
+db.sequelize.sync({ force: true }).then(() => {
   app.listen(PORT, () => {
     console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
   });
