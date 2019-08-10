@@ -21,17 +21,17 @@ const config = {
   },
   "test": {
     "username": "root",
-    "password": "bexley10",
+    "password": null,
     "database": "scrapedData",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "operatorsAliases": false
   },
   "production": {
-    "username": "ktd3apk9izip3j18",
-    "password": "kpcql9uv6u11q7u5",
-    "database": "vfb7pcesq16fp2i5",
-    "host": "s0znzigqvfehvff5.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "username": "vufeqsgoxq8ajher",
+    "password": "vvv3qinzoqx1zahm",
+    "database": "qomt9b53adt1yaob",
+    "host": "c584md9egjnm02sk.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql",
     "operatorsAliases": false
   }
