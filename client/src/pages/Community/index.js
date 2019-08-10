@@ -8,44 +8,45 @@ export function Community() {
   const [article, setArticle] = useState([]);
   const [deal, setDeal] = useState([]);
 
-  function fetchPictures() {
-    console.log("fetching pictures");
-    fetch("/type/picture", {
-      method: "GET"
-    })
-      .then(res => res.json())
-      .then(data => {
-        console.log("this is the picture data", data);
-        setPicture(data);
-      }); 
-  }
+  useEffect(() => {
+    function fetchPictures() {
+      console.log("fetching pictures");
+      fetch("/type/picture", {
+        method: "GET"
+      })
+        .then(res => res.json())
+        .then(data => {
+          console.log("this is the picture data", data);
+          setPicture(data);
+        }); 
+    }
 
-  function fetchArticles() {
-    fetch("/type/article", {
-      method: "GET"
-    })
-      .then(res => res.json())
-      .then(data => {
-        console.log("this is the article data", data);
-        setArticle(data);
-      }); 
-  }
+    function fetchArticles() {
+      fetch("/type/article", {
+        method: "GET"
+      })
+        .then(res => res.json())
+        .then(data => {
+          console.log("this is the article data", data);
+          setArticle(data);
+        }); 
+    }
 
-  function fetchDeals() {
-    fetch("/type/deal", {
-      method: "GET"
-    })
-      .then(res => res.json())
-      .then(data => {
-        console.log("this is the deal data", data);
-        setDeal(data);
-      }); 
-  }
+    function fetchDeals() {
+      fetch("/type/deal", {
+        method: "GET"
+      })
+        .then(res => res.json())
+        .then(data => {
+          console.log("this is the deal data", data);
+          setDeal(data);
+        }); 
+    }
 
-  fetchPictures();
-  /* fetchArticles();
-  fetchDeals(); */
-
+    fetchPictures();
+    fetchArticles();
+    fetchDeals();
+  },[]);
 
     
   return (
