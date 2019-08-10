@@ -1,18 +1,18 @@
 import React, { Component } from "react";
 import Jumbotron from "../../components/Jumbotron";
 
-class AugRealRoutes extends Component {
+class MeetUp extends Component {
   render() {
     return (
       <div>
-    
+        
         <Jumbotron>
-          Augmented Reality Route Data
+          meetup scheduler like meetup app
         </Jumbotron>
-     
+       
       </div>
     );
   }
 }
 
-export default AugRealRoutes;
+export default MeetUp;

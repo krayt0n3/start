@@ -7,7 +7,7 @@ import Profile from "../../components/Profile";
 import CragSearch from "../CragSearch/index";
 import BelayPartner from "../BelayPartner/index";
 import Community from "../Community/index";
-import MeetUp from "../MeetUp/index.js";
+import MeetUp from "../MeetUp/index";
 import NoMatch from "../NoMatch/index.js";
 import FrontPage from "../HomePage/HomePage";
 import AugRealRoutes from "../AugRealRoutes/index";

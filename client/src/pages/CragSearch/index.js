@@ -1,5 +1,4 @@
 import React from "react";
-import "./CragSearch.css";
 import Jumbotron from "../../components/Jumbotron";
 import ContainerA from "../../components/Container";
 import { Container, Row, Col } from "reactstrap";
@@ -10,7 +9,7 @@ import actions from "../../actions";
 import Gauge from "../../components/Gauge/index.js";
 import Weather from "../../components/Weather/index.js";
 import MPWidget from "../../components/MPWidget/index.js";
-import { getRandomDog } from "../../store.js";
+import { getRandomDog } from "../../store";
 
 
 function CragSearch(props) {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./Community.css";
+import "./community.css";
 
 
 

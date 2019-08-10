@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./NoMatch.css";
 import Jumbotron from "../../components/Jumbotron";
 import FallingGIF from "./giphy.gif";
 import Container from "../../components/Container/index"
