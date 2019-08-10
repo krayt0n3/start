@@ -47,7 +47,7 @@
     "react-router-dom": "^5.0.1",
     "reactstrap": "^8.0.1",
     "redux-starter-kit": "^0.6.3",
-    "sequelize": "^5.13.0",
+    "sequelize": "^4.0.0",
     "weather": "^1.0.4"
   }
 }
