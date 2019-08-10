@@ -142,13 +142,14 @@ app.get("/", (req, res) => {
   db.scrape.findAll({}).then(story => res.json(story));
 });  
 
-//GET Route for specific customer
+//GET Route for specific scrape
 app.get("/:attribute/:value", (request, response) => {
   //Note that attribute can be firstname, lastname, phonenumber, etc.
   db.scrape.findAll({
     where: {
       [request.params.attribute]: request.params.value
-    }
+    },
+    limit: 1
   }).then(scraped => response.json(scraped));
 });
 

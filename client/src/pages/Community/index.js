@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import ImageCard from "../../components/ImageCard";
 import "./community.css";
 
 
@@ -51,9 +52,17 @@ export function Community() {
     
   return (
     <div>
-      
+      {picture.map(pictures => (
         
-      {JSON.stringify(picture)}
+        <ImageCard
+          key={pictures.unique_id}
+          title={pictures.title}
+          url={pictures.url}       
+        />
+       
+      ))}
+        
+      {JSON.stringify(picture.url)}
     </div>
   ); 
 
